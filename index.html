@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Saree Shop</title>
+    <style>
+                .navbar {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .nav-right a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .nav-right a:hover {
+            color: #cc0000;
+        }
+	body {
+            background-color: #fff5f5;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial;
+        }
+        .header {
+            background-color: #660066;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+        }
+	.section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ffcccc;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            width: 250px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+	.img-container {
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        .badge.new {
+            background-color: #009900;
+        }
+        .badge.sale {
+            background-color: #ff6600;
+        }
+        .badge.trending {
+            background-color: #cc00cc;
+        }
+            
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 280px;
+            background-color: #fdd;
+            border-radius: 8px;
+        }
+        .card h3 {
+            margin: 10px 0 5px 0;
+            color: #333;
+        }
+        .card .fabric {
+            color: #888;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+        }
+        .card .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #cc0000;
+            margin: 0;
+        }
+        .card .old-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .card button {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .card button:hover {
+            background-color: #aa0000;
+        }
+	.footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 30px 20px 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-col h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #ff9999;
+        }
+        .footer-col p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+    <div class="nav-left">
+        <span class="logo">🌸 SareeShop</span>
+    </div>
+    <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#silk">Silk</a>
+        <a href="#cotton">Cotton</a>
+        <a href="#party">Party Wear</a>
+        <a href="cart.html">🛒 Cart</a>
+    		</div>
+	</div>
+	
+    <div class="header">
+    <h1>🌸 My Saree Shop 🌸</h1>
+    <p>Handpicked Sarees for Every Occasion</p>
+    <p style="margin-top:15px; font-size:20px;">
+        🛒 Cart: <span id="cart-count">0</span> items | 
+        Total: ₹<span id="cart-total">0</span>
+    </p>
+	</div>
+
+        <!-- Silk Sarees Section -->
+    <h2 class="section-title" id="silk">✨ Premium Silk Collection</h2>
+    <div class="products">
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300" alt="Kanjeevaram Silk Saree">
+                <span class="badge new">NEW</span>
+            </div>
+            <h3>Kanjeevaram Silk</h3>
+            <p class="fabric">Pure Silk • Temple Border</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹5,999</p>
+                    <p class="old-price">₹8,999</p>
+                </div>
+                <button onclick="addToCart('Kanjeevaram Silk', '5,999')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=300" alt="Banarasi Wedding Saree">
+                <span class="badge new">BESTSELLER</span>
+            </div>
+            <h3>Banarasi Wedding</h3>
+            <p class="fabric">Silk • Heavy Zari Work</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹7,999</p>
+                    <p class="old-price">₹10,999</p>
+                </div>
+                <button onclick="addToCart('Banarasi Wedding', '7,999')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2874996/pexels-photo-2874996.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Mysore Silk Saree">
+            </div>
+            <h3>Mysore Silk</h3>
+            <p class="fabric">Pure Silk • Gold Border</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹4,599</p>
+                    <p class="old-price">₹6,499</p>
+                </div>
+                <button onclick="addToCart('Mysore Silk', '4,599')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Cotton Sarees Section -->
+    <h2 class="section-title" id="cotton">🌿 Comfort Cotton Collection</h2>
+    <div class="products">
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Chanderi Cotton Saree">
+                <span class="badge sale">SALE</span>
+            </div>
+            <h3>Chanderi Cotton</h3>
+            <p class="fabric">Cotton Silk • Light Weight</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹2,499</p>
+                    <p class="old-price">₹3,999</p>
+                </div>
+                <button onclick="addToCart('Chanderi Cotton', '2,499')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2874997/pexels-photo-2874997.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Bengal Cotton Saree">
+            </div>
+            <h3>Bengal Cotton</h3>
+            <p class="fabric">Pure Cotton • Handloom</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹1,899</p>
+                    <p class="old-price">₹2,499</p>
+                </div>
+                <button onclick="addToCart('Bengal Cotton', '1,899')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2874998/pexels-photo-2874998.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Kota Doria Cotton">
+            </div>
+            <h3>Kota Doria Cotton</h3>
+            <p class="fabric">Cotton • Summer Special</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹1,599</p>
+                    <p class="old-price">₹2,199</p>
+                </div>
+                <button onclick="addToCart('Kota Doria Cotton', '1,599')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Party Wear Section -->
+    <h2 class="section-title" id="party">🎉 Party Wear Collection</h2>
+    <div class="products">
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2874999/pexels-photo-2874999.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Designer Party Saree">
+                <span class="badge new">TRENDING</span>
+            </div>
+            <h3>Designer Party Wear</h3>
+            <p class="fabric">Georgette • Embroidery</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹8,999</p>
+                    <p class="old-price">₹11,999</p>
+                </div>
+                <button onclick="addToCart('Designer Party Wear', '8,999')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2875000/pexels-photo-2875000.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sequins Saree">
+            </div>
+            <h3>Sequins Sparkle</h3>
+            <p class="fabric">Net • Sequins Work</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹6,499</p>
+                    <p class="old-price">₹8,999</p>
+                </div>
+                <button onclick="addToCart('Sequins Sparkle', '6,499')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="https://images.pexels.com/photos/2875001/pexels-photo-2875001.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Velvet Saree">
+            </div>
+            <h3>Royal Velvet</h3>
+            <p class="fabric">Velvet • Zari Border</p>
+            <div class="price-row">
+                <div>
+                    <p class="price">₹9,999</p>
+                    <p class="old-price">₹14,999</p>
+                </div>
+                <button onclick="addToCart('Royal Velvet', '9,999')">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+                    
+                    
+
+<script>
+// Start with empty cart
+var cartCount = 0;
+var cartTotal = 0;
+
+function addToCart(sareeName, price) {
+    // Remove commas and convert price to number
+    var priceNumber = parseInt(price.replace(/,/g, ''));
+    
+    // Add to cart
+    cartCount = cartCount + 1;
+    cartTotal = cartTotal + priceNumber;
+    
+    // Update the display
+    document.getElementById("cart-count").innerText = cartCount;
+    document.getElementById("cart-total").innerText = cartTotal.toLocaleString('en-IN');
+    
+    // Show a small message
+    alert("✅ " + sareeName + " added to cart!");
+}
+</script>
+
+<div class="footer">
+    <div class="footer-columns">
+        <div class="footer-col">
+            <h4>🌸 SareeShop</h4>
+            <p>Beautiful handpicked sarees for every occasion. Quality you can trust.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p>About Us</p>
+            <p>Contact</p>
+            <p>Shipping Policy</p>
+            <p>Returns</p>
+        </div>
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p>📞 +91 98765 43210</p>
+            <p>📧 hello@sareeshop.com</p>
+            <p>📍 Mumbai, India</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 SareeShop. All rights reserved. Made with ❤️</p>
+    </div>
+</div>
+
+</body>
+</html>

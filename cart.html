@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart - SareeShop</title>
+    <style>
+        body {
+            background-color: #fff5f5;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial;
+        }
+        .navbar {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .nav-right a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .nav-right a:hover {
+            color: #cc0000;
+        }
+        .cart-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .cart-container h1 {
+            color: #333;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+            font-size: 18px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            gap: 20px;
+        }
+        .cart-item-img {
+            width: 80px;
+            height: 100px;
+            background-color: #fdd;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-details h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        .cart-item-details .fabric {
+            color: #888;
+            font-size: 14px;
+            margin: 0;
+        }
+        .cart-item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .remove-btn {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .remove-btn:hover {
+            background-color: #cc0000;
+        }
+        .cart-summary {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+        }
+        .cart-summary .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .cart-summary .total {
+            font-size: 24px;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .checkout-btn {
+            background-color: #009900;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .checkout-btn:hover {
+            background-color: #007700;
+        }
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 15px;
+            color: #cc0000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 30px 20px 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-col h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #ff9999;
+        }
+        .footer-col p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-left">
+            <span class="logo">🌸 SareeShop</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="#">Collection</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Sale</a>
+            <a href="cart.html">🛒 Cart</a>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h1>🛒 Your Shopping Cart</h1>
+        
+        <div id="cart-items">
+            <div class="empty-cart">
+                <p>Your cart is empty</p>
+                <a href="index.html" class="continue-shopping">← Continue Shopping</a>
+            </div>
+        </div>
+
+        <div class="cart-summary" id="cart-summary" style="display:none;">
+            <div class="row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+            <div class="row">
+                <span>Delivery</span>
+                <span style="color:#009900;">FREE</span>
+            </div>
+            <div class="row total">
+                <span>Total</span>
+                <span id="total">₹0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+            <a href="index.html" class="continue-shopping">← Continue Shopping</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>🌸 SareeShop</h4>
+                <p>Beautiful handpicked sarees for every occasion.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p>About Us</p>
+                <p>Contact</p>
+                <p>Shipping Policy</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📞 +91 98765 43210</p>
+                <p>📧 hello@sareeshop.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 SareeShop. All rights reserved.</p>
+        </div>
+    </div>
+
+<script>
+// This loads the cart data that was saved from the main page
+var cartItems = JSON.parse(localStorage.getItem('sareeCart') || '[]');
+
+function displayCart() {
+    var itemsContainer = document.getElementById('cart-items');
+    var summaryContainer = document.getElementById('cart-summary');
+    
+    if (cartItems.length === 0) {
+        // Show empty cart message
+        itemsContainer.innerHTML = '<div class="empty-cart"><p>Your cart is empty</p><a href="index.html" class="continue-shopping">← Continue Shopping</a></div>';
+        summaryContainer.style.display = 'none';
+    } else {
+        // Show cart items
+        var html = '';
+        var subtotal = 0;
+        
+        for (var i = 0; i < cartItems.length; i++) {
+            var item = cartItems[i];
+            subtotal = subtotal + item.price;
+            
+            html = html + '<div class="cart-item">';
+            html = html + '<div class="cart-item-img" style="background-color:#fdd;"></div>';
+            html = html + '<div class="cart-item-details">';
+            html = html + '<h3>' + item.name + '</h3>';
+            html = html + '<p class="fabric">' + (item.fabric || 'Premium Quality') + '</p>';
+            html = html + '</div>';
+            html = html + '<div class="cart-item-price">₹' + item.price.toLocaleString('en-IN') + '</div>';
+            html = html + '<button class="remove-btn" onclick="removeItem(' + i + ')">Remove</button>';
+            html = html + '</div>';
+        }
+        
+        itemsContainer.innerHTML = html;
+        summaryContainer.style.display = 'block';
+        
+        document.getElementById('subtotal').innerText = '₹' + subtotal.toLocaleString('en-IN');
+        document.getElementById('total').innerText = '₹' + subtotal.toLocaleString('en-IN');
+    }
+}
+
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    localStorage.setItem('sareeCart', JSON.stringify(cartItems));
+    displayCart();
+}
+
+function checkout() {
+    alert('🎉 Thank you for your order!\n\nYour sarees will be shipped soon.\nWe will contact you for payment details.');
+    cartItems = [];
+    localStorage.setItem('sareeCart', JSON.stringify(cartItems));
+    displayCart();
+}
+
+// Show cart when page loads
+displayCart();
+</script>
+
+</body>
+</html>
