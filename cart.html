@@ -2,12 +2,17 @@
 <html>
 <head>
     <title>My Cart - [YOUR BRAND NAME]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #fff5f5;
-            margin: 0;
             padding: 20px;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
         }
         .navbar {
             background-color: white;
@@ -18,16 +23,22 @@
             align-items: center;
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #cc0000;
         }
+        .nav-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
         .nav-right a {
             text-decoration: none;
             color: #333;
-            margin-left: 25px;
             font-size: 16px;
             font-weight: 500;
         }
@@ -39,39 +50,53 @@
             border-radius: 10px;
             padding: 30px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .cart-container h1 {
             color: #333;
             margin-top: 0;
             font-size: 28px;
+            text-align: center;
+            margin-bottom: 25px;
         }
         .empty-cart {
             text-align: center;
-            padding: 50px;
+            padding: 50px 20px;
             color: #999;
             font-size: 18px;
+        }
+        .empty-cart .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
         }
         .cart-item {
             display: flex;
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .cart-item-img {
             width: 80px;
             height: 100px;
             background-color: #fdd;
             border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
         }
         .cart-item-details {
             flex: 1;
+            min-width: 150px;
         }
         .cart-item-details h3 {
             margin: 0 0 5px 0;
             color: #333;
+            font-size: 18px;
         }
         .cart-item-details .fabric {
             color: #888;
@@ -82,15 +107,43 @@
             font-size: 20px;
             font-weight: bold;
             color: #cc0000;
+            min-width: 80px;
+            text-align: right;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .quantity-btn {
+            background-color: #eee;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quantity-btn:hover {
+            background-color: #ddd;
+        }
+        .quantity-num {
+            font-size: 16px;
+            font-weight: 500;
+            min-width: 20px;
+            text-align: center;
         }
         .remove-btn {
             background-color: #ff4444;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
         }
         .remove-btn:hover {
             background-color: #cc0000;
@@ -103,28 +156,82 @@
         .cart-summary .row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 16px;
         }
         .cart-summary .total {
             font-size: 24px;
             font-weight: bold;
             color: #cc0000;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
         }
-        .checkout-btn {
-            background-color: #009900;
+        .customer-info {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .customer-info h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #cc0000;
+            outline: none;
+        }
+        .whatsapp-order-btn {
+            background-color: #25D366;
             color: white;
             border: none;
-            padding: 15px;
+            padding: 18px;
             width: 100%;
-            border-radius: 8px;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 20px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background-color 0.3s;
         }
-        .checkout-btn:hover {
-            background-color: #007700;
+        .whatsapp-order-btn:hover {
+            background-color: #1ea952;
+        }
+        .note {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin-top: 12px;
         }
         .continue-shopping {
             display: inline-block;
@@ -132,13 +239,19 @@
             color: #cc0000;
             text-decoration: none;
             font-weight: 500;
+            font-size: 16px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 10px;
         }
         .footer {
             background-color: #333;
             color: white;
             padding: 40px 30px 20px 30px;
             border-radius: 10px;
-            margin-top: 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .footer-columns {
             display: flex;
@@ -169,6 +282,35 @@
             font-size: 14px;
             color: #999;
         }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .navbar {
+                padding: 12px 15px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .nav-right a {
+                font-size: 14px;
+            }
+            .cart-container {
+                padding: 20px 15px;
+            }
+            .cart-item {
+                gap: 10px;
+            }
+            .cart-item-price {
+                font-size: 18px;
+                min-width: 60px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -181,7 +323,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="cart.html">🛒 Cart</a>
+            <a href="cart.html">🛒 Cart (<span id="nav-cart-count">0</span>)</a>
         </div>
     </div>
 
@@ -190,26 +332,56 @@
         
         <div id="cart-items">
             <div class="empty-cart">
+                <div class="icon">🛍️</div>
                 <p>Your cart is empty</p>
-                <a href="index.html" class="continue-shopping">← Continue Shopping</a>
+                <div class="back-link">
+                    <a href="index.html" class="continue-shopping">← Continue Shopping</a>
+                </div>
             </div>
         </div>
 
-        <div class="cart-summary" id="cart-summary" style="display:none;">
-            <div class="row">
-                <span>Subtotal</span>
-                <span id="subtotal">₹0</span>
+        <div id="cart-summary" style="display:none;">
+            <div class="cart-summary">
+                <div class="row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+                <div class="row">
+                    <span>Delivery</span>
+                    <span style="color:#009900;">FREE</span>
+                </div>
+                <div class="row total">
+                    <span>Total</span>
+                    <span id="total">₹0</span>
+                </div>
             </div>
-            <div class="row">
-                <span>Delivery</span>
-                <span style="color:#009900;">FREE</span>
+
+            <div class="customer-info">
+                <h3>📝 Your Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" id="cust-name" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="cust-phone" placeholder="+91 98765 43210">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address *</label>
+                    <textarea id="cust-address" rows="2" placeholder="Enter your full address with pincode"></textarea>
+                </div>
             </div>
-            <div class="row total">
-                <span>Total</span>
-                <span id="total">₹0</span>
+
+            <button class="whatsapp-order-btn" onclick="orderViaWhatsApp()">
+                💬 Order via WhatsApp
+            </button>
+            <p class="note">You will be redirected to WhatsApp to complete your order</p>
+            
+            <div class="back-link">
+                <a href="index.html" class="continue-shopping">← Continue Shopping</a>
             </div>
-            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
-            <a href="index.html" class="continue-shopping">← Continue Shopping</a>
         </div>
     </div>
 
@@ -217,12 +389,12 @@
         <div class="footer-columns">
             <div class="footer-col">
                 <h4>🌸 [YOUR BRAND NAME]</h4>
-                <p>Beautiful handpicked sarees for every occasion.</p>
+                <p>[YOUR TAGLINE]</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
-                <p>About Us</p>
-                <p>Contact</p>
+                <p><a href="about.html" style="color:#ccc; text-decoration:none;">About Us</a></p>
+                <p><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></p>
                 <p>Shipping Policy</p>
             </div>
             <div class="footer-col">
@@ -239,12 +411,15 @@
 <script>
 var cartItems = JSON.parse(localStorage.getItem('sareeCart') || '[]');
 
+// Update nav cart count
+document.getElementById('nav-cart-count').innerText = cartItems.length;
+
 function displayCart() {
     var itemsContainer = document.getElementById('cart-items');
     var summaryContainer = document.getElementById('cart-summary');
     
     if (cartItems.length === 0) {
-        itemsContainer.innerHTML = '<div class="empty-cart"><p>Your cart is empty</p><a href="index.html" class="continue-shopping">← Continue Shopping</a></div>';
+        itemsContainer.innerHTML = '<div class="empty-cart"><div class="icon">🛍️</div><p>Your cart is empty</p><div class="back-link"><a href="index.html" class="continue-shopping">← Continue Shopping</a></div></div>';
         summaryContainer.style.display = 'none';
     } else {
         var html = '';
@@ -252,17 +427,23 @@ function displayCart() {
         
         for (var i = 0; i < cartItems.length; i++) {
             var item = cartItems[i];
-            subtotal = subtotal + item.price;
+            var qty = item.quantity || 1;
+            subtotal = subtotal + (item.price * qty);
             
-            html = html + '<div class="cart-item">';
-            html = html + '<div class="cart-item-img" style="background-color:#fdd;"></div>';
-            html = html + '<div class="cart-item-details">';
-            html = html + '<h3>' + item.name + '</h3>';
-            html = html + '<p class="fabric">' + (item.fabric || 'Premium Quality') + '</p>';
-            html = html + '</div>';
-            html = html + '<div class="cart-item-price">₹' + item.price.toLocaleString('en-IN') + '</div>';
-            html = html + '<button class="remove-btn" onclick="removeItem(' + i + ')">Remove</button>';
-            html = html + '</div>';
+            html += '<div class="cart-item">';
+            html += '<div class="cart-item-img">🧵</div>';
+            html += '<div class="cart-item-details">';
+            html += '<h3>' + item.name + '</h3>';
+            html += '<p class="fabric">' + (item.fabric || 'Premium Quality') + '</p>';
+            html += '<div class="quantity-controls">';
+            html += '<button class="quantity-btn" onclick="changeQty(' + i + ', -1)">−</button>';
+            html += '<span class="quantity-num">' + qty + '</span>';
+            html += '<button class="quantity-btn" onclick="changeQty(' + i + ', 1)">+</button>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="cart-item-price">₹' + (item.price * qty).toLocaleString('en-IN') + '</div>';
+            html += '<button class="remove-btn" onclick="removeItem(' + i + ')">✕ Remove</button>';
+            html += '</div>';
         }
         
         itemsContainer.innerHTML = html;
@@ -273,17 +454,87 @@ function displayCart() {
     }
 }
 
-function removeItem(index) {
-    cartItems.splice(index, 1);
+function changeQty(index, change) {
+    if (!cartItems[index].quantity) {
+        cartItems[index].quantity = 1;
+    }
+    cartItems[index].quantity += change;
+    if (cartItems[index].quantity < 1) {
+        cartItems[index].quantity = 1;
+    }
     localStorage.setItem('sareeCart', JSON.stringify(cartItems));
     displayCart();
 }
 
-function checkout() {
-    alert('🎉 Thank you for your order!\n\nYour sarees will be shipped soon.\nWe will contact you for payment details.');
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    localStorage.setItem('sareeCart', JSON.stringify(cartItems));
+    document.getElementById('nav-cart-count').innerText = cartItems.length;
+    displayCart();
+}
+
+function orderViaWhatsApp() {
+    var name = document.getElementById('cust-name').value.trim();
+    var phone = document.getElementById('cust-phone').value.trim();
+    var address = document.getElementById('cust-address').value.trim();
+    
+    if (!name) {
+        alert('⚠️ Please enter your name');
+        return;
+    }
+    if (!phone) {
+        alert('⚠️ Please enter your phone number');
+        return;
+    }
+    if (!address) {
+        alert('⚠️ Please enter your delivery address');
+        return;
+    }
+    
+    // Build order message
+    var message = '🛒 *NEW ORDER* 🛒\n\n';
+    message += '*Customer Details:*\n';
+    message += '👤 Name: ' + name + '\n';
+    message += '📞 Phone: ' + phone + '\n';
+    message += '📍 Address: ' + address + '\n\n';
+    message += '*Order Items:*\n';
+    message += '━━━━━━━━━━━━━━\n';
+    
+    var total = 0;
+    for (var i = 0; i < cartItems.length; i++) {
+        var item = cartItems[i];
+        var qty = item.quantity || 1;
+        var itemTotal = item.price * qty;
+        total += itemTotal;
+        
+        message += (i+1) + '. ' + item.name + '\n';
+        message += '   ' + item.fabric + ' | Qty: ' + qty + '\n';
+        message += '   ₹' + itemTotal.toLocaleString('en-IN') + '\n\n';
+    }
+    
+    message += '━━━━━━━━━━━━━━\n';
+    message += '*Total: ₹' + total.toLocaleString('en-IN') + '*\n';
+    message += 'Delivery: FREE\n\n';
+    message += '📅 _Please confirm this order_\n';
+    
+    // YOUR WHATSAPP NUMBER - change this!
+    var whatsappNumber = '919876543210';
+    
+    var whatsappURL = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+    
+    // Clear cart after ordering
     cartItems = [];
     localStorage.setItem('sareeCart', JSON.stringify(cartItems));
+    document.getElementById('nav-cart-count').innerText = '0';
+    
+    // Open WhatsApp
+    window.open(whatsappURL, '_blank');
+    
+    // Refresh cart display
     displayCart();
+    document.getElementById('cust-name').value = '';
+    document.getElementById('cust-phone').value = '';
+    document.getElementById('cust-address').value = '';
 }
 
 displayCart();
