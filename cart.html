@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Cart - SareeShop</title>
+    <title>My Cart - [YOUR BRAND NAME]</title>
     <style>
         body {
             background-color: #fff5f5;
@@ -175,7 +175,7 @@
 
     <div class="navbar">
         <div class="nav-left">
-            <span class="logo">🌸 SareeShop</span>
+            <span class="logo">🌸 [YOUR BRAND NAME]</span>
         </div>
         <div class="nav-right">
             <a href="index.html">Home</a>
@@ -216,7 +216,7 @@
     <div class="footer">
         <div class="footer-columns">
             <div class="footer-col">
-                <h4>🌸 SareeShop</h4>
+                <h4>🌸 [YOUR BRAND NAME]</h4>
                 <p>Beautiful handpicked sarees for every occasion.</p>
             </div>
             <div class="footer-col">
@@ -227,17 +227,16 @@
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <p>📞 +91 8277148677</p>
-                <p>📧 hello@sareeshop.com</p>
+                <p>📞 [YOUR PHONE NUMBER]</p>
+                <p>📧 [YOUR EMAIL]</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 SareeShop. All rights reserved.</p>
+            <p>© 2025 [YOUR BRAND NAME]. All rights reserved.</p>
         </div>
     </div>
 
 <script>
-// This loads the cart data that was saved from the main page
 var cartItems = JSON.parse(localStorage.getItem('sareeCart') || '[]');
 
 function displayCart() {
@@ -245,11 +244,9 @@ function displayCart() {
     var summaryContainer = document.getElementById('cart-summary');
     
     if (cartItems.length === 0) {
-        // Show empty cart message
         itemsContainer.innerHTML = '<div class="empty-cart"><p>Your cart is empty</p><a href="index.html" class="continue-shopping">← Continue Shopping</a></div>';
         summaryContainer.style.display = 'none';
     } else {
-        // Show cart items
         var html = '';
         var subtotal = 0;
         
@@ -289,7 +286,6 @@ function checkout() {
     displayCart();
 }
 
-// Show cart when page loads
 displayCart();
 </script>
 

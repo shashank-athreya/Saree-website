@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Saree Shop</title>
+    <title>[YOUR BRAND NAME] - Premium Sarees</title>
     <style>
-                .navbar {
+        body {
+            background-color: #fff5f5;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial;
+        }
+        .navbar {
             background-color: white;
             padding: 15px 30px;
             border-radius: 10px;
@@ -28,14 +34,8 @@
         .nav-right a:hover {
             color: #cc0000;
         }
-	body {
-            background-color: #fff5f5;
-            margin: 0;
-            padding: 20px;
-            font-family: Arial;
-        }
         .header {
-            background-color: #660066;
+            background-color: #cc0000;
             color: white;
             text-align: center;
             padding: 40px;
@@ -50,7 +50,7 @@
             margin: 10px 0 0 0;
             font-size: 18px;
         }
-	.section-title {
+        .section-title {
             text-align: center;
             font-size: 28px;
             color: #333;
@@ -72,8 +72,22 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-	.img-container {
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .img-container {
             position: relative;
+        }
+        .img-container img {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .card:hover img {
+            transform: scale(1.05);
         }
         .badge {
             position: absolute;
@@ -93,21 +107,6 @@
         }
         .badge.trending {
             background-color: #cc00cc;
-        }
-            
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        .card img {
-            width: 100%;
-            height: 280px;
-            border-radius: 8px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .card:hover img {
-            transform: scale(1.05);
         }
         .card h3 {
             margin: 10px 0 5px 0;
@@ -146,7 +145,7 @@
         .card button:hover {
             background-color: #aa0000;
         }
-	.footer {
+        .footer {
             background-color: #333;
             color: white;
             padding: 40px 30px 20px 30px;
@@ -185,75 +184,76 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-    <div class="nav-left">
-        <span class="logo">🌸 SareeShop</span>
-    </div>
-    <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒 Cart</a>
-    		</div>
-	</div>
-	
-    <div class="header">
-    <h1>🌸 My Saree Shop 🌸</h1>
-    <p>Handpicked Sarees for Every Occasion</p>
-    <p style="margin-top:15px; font-size:20px;">
-        🛒 Cart: <span id="cart-count">0</span> items | 
-        Total: ₹<span id="cart-total">0</span>
-    </p>
-	</div>
 
-        <!-- Silk Sarees Section -->
+    <div class="navbar">
+        <div class="nav-left">
+            <span class="logo">🌸 [YOUR BRAND NAME]</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">🛒 Cart</a>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>🌸 [YOUR BRAND NAME] 🌸</h1>
+        <p>[YOUR TAGLINE - eg: Handpicked Sarees for Every Occasion]</p>
+        <p style="margin-top:15px; font-size:20px;">
+            🛒 Cart: <span id="cart-count">0</span> items | 
+            Total: ₹<span id="cart-total">0</span>
+        </p>
+    </div>
+
+    <!-- Silk Sarees Section -->
     <h2 class="section-title" id="silk">✨ Premium Silk Collection</h2>
     <div class="products">
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886366/pexels-photo-29886366/free-photo-of-elegant-silk-saree-with-traditional-jewelry.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Kanjeevaram Silk Saree">    
+                <img src="https://placehold.co/300x400/ffd4d4/cc0000?text=[SAREE+NAME]" alt="[Saree Name]">
                 <span class="badge new">NEW</span>
             </div>
-            <h3>Kanjeevaram Silk</h3>
-            <p class="fabric">Pure Silk • Temple Border</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹5,999</p>
-                    <p class="old-price">₹8,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Kanjeevaram Silk', '5,999')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886367/pexels-photo-29886367/free-photo-of-traditional-indian-saree-with-gold-embroidery.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Banarasi Wedding Saree">
+                <img src="https://placehold.co/300x400/ffd4d4/cc0000?text=[SAREE+NAME]" alt="[Saree Name]">
                 <span class="badge new">BESTSELLER</span>
             </div>
-            <h3>Banarasi Wedding</h3>
-            <p class="fabric">Silk • Heavy Zari Work</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹7,999</p>
-                    <p class="old-price">₹10,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Banarasi Wedding', '7,999')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886368/pexels-photo-29886368/free-photo-of-elegant-red-silk-saree-with-golden-border.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Mysore Silk Saree">
+                <img src="https://placehold.co/300x400/ffd4d4/cc0000?text=[SAREE+NAME]" alt="[Saree Name]">
             </div>
-            <h3>Mysore Silk</h3>
-            <p class="fabric">Pure Silk • Gold Border</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹4,599</p>
-                    <p class="old-price">₹6,499</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Mysore Silk', '4,599')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
@@ -265,47 +265,47 @@
 
         <div class="card">
             <div class="img-container">
-                <img src="https://placehold.co/300x400/ffd4d4/cc0000?text=Chanderi+Cotton" alt="Chanderi Cotton Saree">
+                <img src="https://placehold.co/300x400/fff0e0/cc6600?text=[SAREE+NAME]" alt="[Saree Name]">
                 <span class="badge sale">SALE</span>
             </div>
-            <h3>Chanderi Cotton</h3>
-            <p class="fabric">Cotton Silk • Light Weight</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹2,499</p>
-                    <p class="old-price">₹3,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Chanderi Cotton', '2,499')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886370/pexels-photo-29886370/free-photo-of-white-cotton-saree-with-red-border.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Bengal Cotton Saree">
+                <img src="https://placehold.co/300x400/fff0e0/cc6600?text=[SAREE+NAME]" alt="[Saree Name]">
             </div>
-            <h3>Bengal Cotton</h3>
-            <p class="fabric">Pure Cotton • Handloom</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹1,899</p>
-                    <p class="old-price">₹2,499</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Bengal Cotton', '1,899')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886371/pexels-photo-29886371/free-photo-of-lightweight-kota-doria-saree.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Kota Doria Cotton Saree">
+                <img src="https://placehold.co/300x400/fff0e0/cc6600?text=[SAREE+NAME]" alt="[Saree Name]">
             </div>
-            <h3>Kota Doria Cotton</h3>
-            <p class="fabric">Cotton • Summer Special</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹1,599</p>
-                    <p class="old-price">₹2,199</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Kota Doria Cotton', '1,599')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
@@ -317,100 +317,112 @@
 
         <div class="card">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/29886372/pexels-photo-29886372/free-photo-of-designer-party-wear-saree-with-sequins.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Designer Party Saree">
-                <span class="badge new">TRENDING</span>
+                <img src="https://placehold.co/300x400/e6e6ff/0000cc?text=[SAREE+NAME]" alt="[Saree Name]">
+                <span class="badge trending">TRENDING</span>
             </div>
-            <h3>Designer Party Wear</h3>
-            <p class="fabric">Georgette • Embroidery</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹8,999</p>
-                    <p class="old-price">₹11,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Designer Party Wear', '8,999')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://placehold.co/300x400/ffe4f2/cc0066?text=Sequins+Sparkle" alt="Sequins Sparkle">
+                <img src="https://placehold.co/300x400/e6e6ff/0000cc?text=[SAREE+NAME]" alt="[Saree Name]">
             </div>
-            <h3>Sequins Sparkle</h3>
-            <p class="fabric">Net • Sequins Work</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹6,499</p>
-                    <p class="old-price">₹8,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Sequins Sparkle', '6,499')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
             <div class="img-container">
-                <img src="https://placehold.co/300x400/e6d5ff/6600cc?text=Royal+Velvet" alt="Royal Velvet">
+                <img src="https://placehold.co/300x400/e6e6ff/0000cc?text=[SAREE+NAME]" alt="[Saree Name]">
             </div>
-            <h3>Royal Velvet</h3>
-            <p class="fabric">Velvet • Zari Border</p>
+            <h3>[Saree Name]</h3>
+            <p class="fabric">[Fabric Type] • [Feature]</p>
             <div class="price-row">
                 <div>
-                    <p class="price">₹9,999</p>
-                    <p class="old-price">₹14,999</p>
+                    <p class="price">₹[SELLING PRICE]</p>
+                    <p class="old-price">₹[ORIGINAL PRICE]</p>
                 </div>
-                <button onclick="addToCart('Royal Velvet', '9,999')">Add to Cart</button>
+                <button onclick="addToCart('[Saree Name]', '[SELLING PRICE]', '[Fabric Type]')">Add to Cart</button>
             </div>
         </div>
 
     </div>
-                    
-                    
+
+    <div class="footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>🌸 [YOUR BRAND NAME]</h4>
+                <p>[YOUR TAGLINE]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p>About Us</p>
+                <p>Contact</p>
+                <p>Shipping Policy</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📞 [YOUR PHONE NUMBER]</p>
+                <p>📧 [YOUR EMAIL]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 [YOUR BRAND NAME]. All rights reserved.</p>
+        </div>
+    </div>
 
 <script>
-// Start with empty cart
 var cartCount = 0;
 var cartTotal = 0;
 
-function addToCart(sareeName, price) {
-    // Remove commas and convert price to number
+// Load saved cart from localStorage
+var savedCart = JSON.parse(localStorage.getItem('sareeCart') || '[]');
+cartCount = savedCart.length;
+for (var i = 0; i < savedCart.length; i++) {
+    cartTotal = cartTotal + savedCart[i].price;
+}
+
+// Update display on page load
+document.getElementById("cart-count").innerText = cartCount;
+document.getElementById("cart-total").innerText = cartTotal.toLocaleString('en-IN');
+
+function addToCart(sareeName, price, fabric) {
     var priceNumber = parseInt(price.replace(/,/g, ''));
     
-    // Add to cart
-    cartCount = cartCount + 1;
-    cartTotal = cartTotal + priceNumber;
+    // Add to saved cart
+    savedCart.push({
+        name: sareeName,
+        price: priceNumber,
+        fabric: fabric || 'Premium Quality'
+    });
     
-    // Update the display
+    // Save to localStorage
+    localStorage.setItem('sareeCart', JSON.stringify(savedCart));
+    
+    // Update cart display
+    cartCount = savedCart.length;
+    cartTotal = cartTotal + priceNumber;
     document.getElementById("cart-count").innerText = cartCount;
     document.getElementById("cart-total").innerText = cartTotal.toLocaleString('en-IN');
     
-    // Show a small message
     alert("✅ " + sareeName + " added to cart!");
 }
 </script>
-
-<div class="footer">
-    <div class="footer-columns">
-        <div class="footer-col">
-            <h4>🌸 SareeShop</h4>
-            <p>Beautiful handpicked sarees for every occasion. Quality you can trust.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <p>About Us</p>
-            <p>Contact</p>
-            <p>Shipping Policy</p>
-            <p>Returns</p>
-        </div>
-        <div class="footer-col">
-            <h4>Contact Us</h4>
-            <p>📞 +91 8277148677</p>
-            <p>📧 hello@sareeshop.com</p>
-            <p>📍 Mumbai, India</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2025 SareeShop. All rights reserved. Made with ❤️</p>
-    </div>
-</div>
 
 </body>
 </html>
